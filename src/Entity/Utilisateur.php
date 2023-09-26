@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\UtilisateurRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -41,9 +42,33 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'utilisateur', targetEntity: Commande::class)]
     private Collection $commandes;
 
+    #[ORM\Column]
+    private ?int $telephone = null;
+
+    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    private ?\DateTimeInterface $dateNaissance = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $nombreEnfant = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $ageEnfants = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $sportPratiquee = null;
+
+    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $dateDernierAchat = null;
+
+    #[ORM\OneToMany(mappedBy: 'utilisateur', targetEntity: Enfant::class)]
+    private Collection $enfants;
+
+
+
     public function __construct()
     {
         $this->commandes = new ArrayCollection();
+        $this->enfants = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -176,6 +201,108 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($commande->getUtilisateur() === $this) {
                 $commande->setUtilisateur(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getTelephone(): ?int
+    {
+        return $this->telephone;
+    }
+
+    public function setTelephone(int $telephone): static
+    {
+        $this->telephone = $telephone;
+
+        return $this;
+    }
+
+    public function getDateNaissance(): ?\DateTimeInterface
+    {
+        return $this->dateNaissance;
+    }
+
+    public function setDateNaissance(\DateTimeInterface $dateNaissance): static
+    {
+        $this->dateNaissance = $dateNaissance;
+
+        return $this;
+    }
+
+    public function getNombreEnfant(): ?int
+    {
+        return $this->nombreEnfant;
+    }
+
+    public function setNombreEnfant(?int $nombreEnfant): static
+    {
+        $this->nombreEnfant = $nombreEnfant;
+
+        return $this;
+    }
+
+    public function getAgeEnfants(): ?int
+    {
+        return $this->ageEnfants;
+    }
+
+    public function setAgeEnfants(?int $ageEnfants): static
+    {
+        $this->ageEnfants = $ageEnfants;
+
+        return $this;
+    }
+
+    public function getSportPratiquee(): ?string
+    {
+        return $this->sportPratiquee;
+    }
+
+    public function setSportPratiquee(string $sportPratiquee): static
+    {
+        $this->sportPratiquee = $sportPratiquee;
+
+        return $this;
+    }
+
+    public function getDateDernierAchat(): ?\DateTimeInterface
+    {
+        return $this->dateDernierAchat;
+    }
+
+    public function setDateDernierAchat(?\DateTimeInterface $dateDernierAchat): static
+    {
+        $this->dateDernierAchat = $dateDernierAchat;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Enfant>
+     */
+    public function getEnfants(): Collection
+    {
+        return $this->enfants;
+    }
+
+    public function addEnfant(Enfant $enfant): static
+    {
+        if (!$this->enfants->contains($enfant)) {
+            $this->enfants->add($enfant);
+            $enfant->setUtilisateur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEnfant(Enfant $enfant): static
+    {
+        if ($this->enfants->removeElement($enfant)) {
+            // set the owning side to null (unless already changed)
+            if ($enfant->getUtilisateur() === $this) {
+                $enfant->setUtilisateur(null);
             }
         }
 
