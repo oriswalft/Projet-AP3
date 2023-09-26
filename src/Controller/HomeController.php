@@ -5,6 +5,8 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\ProduitRepository;
+use App\Repository\RayonRepository;
 
 class HomeController extends AbstractController
 {
@@ -16,8 +18,15 @@ class HomeController extends AbstractController
     }
 
     #[Route('/filtrage', name: 'app_filtrage')]
-    public function filtrage(): Response
+    public function filtrage(RayonRepository $rayonRepository, ProduitRepository $produitReposotory): Response
     {
-        return $this->render('filtre.html.twig', []);
+        $categories = $rayonRepository->findall();
+        $produits = $produitReposotory->findall();
+        return $this->render('filtre.html.twig', [
+            'categories' => $categories,
+            'produits'  => $produits,
+
+        ]);
+        
     }
 }
