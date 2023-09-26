@@ -14,4 +14,10 @@ class HomeController extends AbstractController
     {
         return $this->render('home/accueil.html.twig', []);
     }
+
+    #[Route('/filtrage', name: 'app_filtrage')]
+    public function filtrage(): Response
+    {
+        return $this->render('filtre.html.twig', []);
+    }
 }
