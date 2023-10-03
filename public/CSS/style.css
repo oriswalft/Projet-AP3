@@ -29,3 +29,64 @@
     text-decoration: underline;
     text-underline-offset: 5px;
 }
+
+/* Fond noir pour le footer */
+footer {
+    background-color: black;
+}
+
+/* Couleur du texte du footer */
+footer,
+footer a {
+    color: #ffffff;
+}
+
+/* Centrer le texte dans le footer */
+footer h4,
+footer p,
+footer ul,
+footer li {
+    text-align: center;
+}
+
+/* Ajouter de l'espace autour des éléments du footer */
+footer h4,
+footer p,
+footer ul {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Styles pour les liens du footer */
+footer a {
+    text-decoration: none;
+    transition: color 0.3s;
+    /* Une transition en douceur pour la couleur des liens */
+}
+
+footer a:hover {
+    color: #448ee4;
+    /* Couleur jaune au survol des liens */
+}
+
+/* Centrer le texte du bas du footer */
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #555;
+    /* Ligne séparatrice */
+}
+
+/* Styles pour les icônes de réseaux sociaux */
+.footer-social i {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+/* Réactivité pour les écrans plus petits */
+@media screen and (max-width: 768px) {
+    footer .col-md-4 {
+        margin-bottom: 20px;
+    }
+}
