@@ -1,21 +1,21 @@
-
 {% extends 'base.html.twig' %}
 
-{% block title %}All4Sport - boutique en ligne{% endblock %}
+    {% block title %}All4Sport - boutique en ligne{% endblock %}
 
 
-{% block body %}
-<div class="row">
+    {% block body %}
+<div class="container">
+    <div class="row">
         {% for produit in produits %}
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <div class="card-body">
-                        <img src={{produit.image}}></img>
-                        <p class="card-text">{{ produit.description }}</p>
-                        <p class="card-text">{{ produit.prix }} €</p>
-                    </div>
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <p class="card-text">{{ produit.description }}</p>
+                    <p class="card-text">{{ produit.prix }} €</p>
                 </div>
             </div>
+        </div>
         {% endfor %}
     </div>
+</div>
 {% endblock %}
