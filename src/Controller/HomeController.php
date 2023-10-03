@@ -11,7 +11,7 @@ use App\Repository\RayonRepository;
 class HomeController extends AbstractController
 {
 
-    #[Route('/accueil', name: 'app_accueil')]
+    #[Route('/', name: 'app_accueil')]
     public function accueil(): Response
     {
         return $this->render('home/accueil.html.twig', []);
