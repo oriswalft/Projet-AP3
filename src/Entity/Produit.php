@@ -28,16 +28,17 @@ class Produit
     #[ORM\Column]
     private ?int $quantite = null;
 
-    #[ORM\ManyToOne(inversedBy: 'produits')]
-    #[ORM\JoinColumn(nullable: true)]
-    private ?ProdCom $prodCom = null;
 
-    #[ORM\ManyToMany(targetEntity: Rayon::class, mappedBy: 'produits')]
-    private Collection $rayons;
+    #[ORM\OneToMany(mappedBy: 'produits', targetEntity: ProdCom::class)]
+    private Collection $prodComs;
+
+    #[ORM\ManyToOne(inversedBy: 'produits')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Rayon $categorie = null;
 
     public function __construct()
     {
-        $this->rayons = new ArrayCollection();
+        $this->commandes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -93,41 +94,44 @@ class Produit
         return $this;
     }
 
-    public function getProdCom(): ?ProdCom
-    {
-        return $this->prodCom;
-    }
-
-    public function setProdCom(?ProdCom $prodCom): static
-    {
-        $this->prodCom = $prodCom;
-
-        return $this;
-    }
-
     /**
-     * @return Collection<int, Rayon>
+     * @return Collection<int, ProdCom>
      */
-    public function getRayons(): Collection
+    public function getProdComs(): Collection
     {
-        return $this->rayons;
+        return $this->prodComs;
     }
 
-    public function addRayon(Rayon $rayon): static
+    public function addProdCom(ProdCom $prodCom): static
     {
-        if (!$this->rayons->contains($rayon)) {
-            $this->rayons->add($rayon);
-            $rayon->addProduit($this);
+        if (!$this->prodComs->contains($prodCom)) {
+            $this->prodComs->add($prodCom);
+            $prodCom->setProduits($this);
         }
 
         return $this;
     }
 
-    public function removeRayon(Rayon $rayon): static
+    public function removeProdCom(ProdCom $prodCom): static
     {
-        if ($this->rayons->removeElement($rayon)) {
-            $rayon->removeProduit($this);
+        if ($this->prodCom->removeElement($prodCom)) {
+            // set the owning side to null (unless already changed)
+            if ($prodCom->getProduits() === $this) {
+                $prodCom->setProduits(null);
+            }
         }
+
+        return $this;
+    }
+
+    public function getCategorie(): ?Rayon
+    {
+        return $this->categorie;
+    }
+
+    public function setCategorie(?Rayon $categorie): static
+    {
+        $this->categorie = $categorie;
 
         return $this;
     }
