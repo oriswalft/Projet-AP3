@@ -29,7 +29,7 @@ class Produit
     private ?int $quantite = null;
 
     #[ORM\ManyToOne(inversedBy: 'produits')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private ?ProdCom $prodCom = null;
 
     #[ORM\ManyToMany(targetEntity: Rayon::class, mappedBy: 'produits')]
