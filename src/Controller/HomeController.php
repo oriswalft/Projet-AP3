@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\ProduitRepository;
 use App\Repository\RayonRepository;
+use Symfony\Component\HttpFoundation\Request;
 
 class HomeController extends AbstractController
 {
@@ -17,19 +18,6 @@ class HomeController extends AbstractController
         $produits = $produitReposotory->findall();
         return $this->render('home/accueil.html.twig', [
             'produits'  => $produits,
-        ]);
-        
-    }
-
-    #[Route('/filtrage', name: 'app_filtrage')]
-    public function filtrage(RayonRepository $rayonRepository, ProduitRepository $produitReposotory): Response
-    {
-        $categories = $rayonRepository->findall();
-        $produits = $produitReposotory->findall();
-        return $this->render('filtre.html.twig', [
-            'categories' => $categories,
-            'produits'  => $produits,
-
         ]);
         
     }

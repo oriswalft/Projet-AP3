@@ -36,6 +36,9 @@ class Produit
     #[ORM\JoinColumn(nullable: false)]
     private ?Rayon $categorie = null;
 
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $image = null;
+
     public function __construct()
     {
         $this->commandes = new ArrayCollection();
@@ -132,6 +135,18 @@ class Produit
     public function setCategorie(?Rayon $categorie): static
     {
         $this->categorie = $categorie;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): static
+    {
+        $this->image = $image;
 
         return $this;
     }

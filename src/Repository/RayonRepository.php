@@ -45,4 +45,12 @@ class RayonRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+public function findByCategorie($categorie)
+{
+    return $this->createQueryBuilder('p')
+        ->andWhere('p.categorie = :categorie')
+        ->setParameter('categorie', $categorie)
+        ->getQuery()
+        ->getResult();
+}
 }
