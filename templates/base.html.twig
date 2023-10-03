@@ -36,34 +36,39 @@
                     </ul>
                 </div>
         {% block body %}{% endblock %}
-        <footer class="bg-dark text-white py-4">
+        <div class="section footer-1 color-overlay">	
+            <svg class="svg svg-top" xmlns="http://www.w3.org/2000/svg" width="1200" fill="#f9fcfe" height="30" viewBox="0 0 1200 30" preserveAspectRatio="none">
+                <path d="M0,0S1.209,1.508,200.671,7.031C375.088,15.751,454.658,30,600,30V0H0ZM1200,0s-90.21,1.511-200.671,7.034C824.911,15.751,745.342,30,600,30V0h600Z"></path>
+            </svg>			
             <div class="container">
-              <div class="row">
-                <div class="col-md-4">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 section-heading-1">
+                        <h2 class="white">Newsletter</h2>						
+                        <p class="white">
+                            Inscrivez-vous pour reçevoir pour des mails concernant de nouvelles offres
+                        </p>	
+                    </div>
+                </div>	
+                <!-- NEWSLETTER -->
+                <div class="newsletter-1">
+                    <div class="newsletter-bg">
+                        <div class="row">	
+                            <div class="col-sm-12 col-md-offset-2 col-md-8">
+                                <form action="php/newsletter.php" method="post">
+                                    <input id="email_newsletter" class="form-control" type="email" name="nf_email" placeholder="Enter Your Email" maxlength="50">
+                                    <button type="submit" class="btn btn-primary"><span>Subscribe</span></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>				
                 </div>
-                <div class="col-md-3">
-                  <h4>Nous Contacter</h4>
-                  <p>Adresse : 123, Rue des Sports</p>
-                  <p>Téléphone : +01 234 567 890</p>
-                  <p>Email : contact@all4sport.com</p>
-                </div>
-                <div class="col-md-2">
-                  <h4>Nos Catégories</h4>
-                  <ul class="list-unstyled">
-                    <li><a href="#">Chaussures de sport</a></li>
-                    <li><a href="#">Vêtements de sport</a></li>
-                    <li><a href="#">Équipement de fitness</a></li>
-                    <li><a href="#">Accessoires</a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="row mt-4">
-                <div class="col-md-12 text-center">
-                  &copy; 2023 All4Sport. Tous droits réservés. | <a href="#">Politique de confidentialité</a> | <a href="#">Conditions générales de vente</a>
-                </div>
-              </div>
+                <!-- Social Icon -->
+                
+                <div class="fcopy text-center">
+                    2018 All Right Reserved.
+                </div>								
             </div>
-          </footer>
+        </div>
           
           
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
