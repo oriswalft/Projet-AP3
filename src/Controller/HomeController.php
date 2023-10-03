@@ -12,9 +12,13 @@ class HomeController extends AbstractController
 {
 
     #[Route('/', name: 'app_accueil')]
-    public function accueil(): Response
+    public function accueil(ProduitRepository $produitReposotory): Response
     {
-        return $this->render('home/accueil.html.twig', []);
+        $produits = $produitReposotory->findall();
+        return $this->render('home/accueil.html.twig', [
+            'produits'  => $produits,
+        ]);
+        
     }
 
     #[Route('/filtrage', name: 'app_filtrage')]
