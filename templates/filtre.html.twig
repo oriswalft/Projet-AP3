@@ -4,20 +4,28 @@
 
 {% block body %}
     <h1>Filtrage produit par rayon</h1>
-    
-    <form method="get">
-        <label for="categories">Sélectionnez un rayon :</label>
-        <select name="categorie" id="categories">
-            <option value="">Tous les rayons</option>
-            {% for categorie in categories %}
-                <option value="{{ categorie.id }}" {% if app.request.query.get('categorie') == categorie.id %}selected{% endif %}>{{ categorie.nom }}</option>
-            {% endfor %}
-        </select>
-        <input type="submit" value="Filtrer">
-    </form>
+
+  <form method="get" action="{{ path('filtre') }}">
+    <label for="categories">Sélectionnez un rayon :</label>
+    <select name="categorie" id="categories">
+        <option value="">Tous les rayons</option>
+        {% for categorie in categories %}
+            <option value="{{ categorie.id }}" {% if app.request.query.get('categorie') == categorie.id %}selected{% endif %}>
+                {{ categorie.nom }}
+            </option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="Filtrer">
+</form>
+
+
+    {% dump(app.request.query.get('categorie')) %}
 
     {% if app.request.query.get('categorie') %}
         <h2>Produits pour le rayon sélectionné</h2>
+
+        {% dump(produitsParRayon) %}
+
         <ul>
             {% for produit in produitsParRayon[app.request.query.get('categorie')] %}
                 <li>{{ produit.description }} - Prix : {{ produit.prix }}</li>
