@@ -1,3 +1,13 @@
+.card {
+    text-align: center;
+
+}
+
+.card img {
+    margin: 0 auto;
+    display: block;
+}
+
 .header {
     height: 30px;
     background-color: #448ee4;

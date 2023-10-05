@@ -7,16 +7,18 @@
 <div class="container">
     <div class="row">
         {% for produit in produits %}
-        <div class="col-md-4">
-            <div class="card mb-3">
+            <div class="card mb-4 col-4">
                 <div class="card-body">
-                    <img src="{{ asset ('pictures/articles/' ~ produit.image) }}" alt="Le logo du produit"  height="100px">
+                    <img src="{{ asset ('pictures/' ~ produit.image) }}" alt="Le logo du produit"  height="350px">
                     <p class="card-text">{{ produit.description }}</p>
                     <p class="card-text">{{ produit.prix }} €</p>
                 </div>
             </div>
-        </div>
         {% endfor %}
     </div>
 </div>
 {% endblock %}
+.card {
+    text-align: center;
+
+}
