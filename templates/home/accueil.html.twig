@@ -10,7 +10,7 @@
         <div class="col-md-4">
             <div class="card mb-3">
                 <div class="card-body">
-                    <img src="{{ asset ('pictures/web-771281-01-p.webp') }}" alt="Le logo du produit"  height="500px">
+                    <img src="{{ asset ('pictures/' ~ produit.image) }}" alt="Le logo du produit"  height="500px">
                     <p class="card-text">{{ produit.description }}</p>
                     <p class="card-text">{{ produit.prix }} €</p>
                 </div>
