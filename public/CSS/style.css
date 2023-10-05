@@ -67,7 +67,7 @@ button {
 }
 
 button {
-    -webkit-appearance: button;
+
     cursor: pointer;
 }
 
@@ -389,13 +389,12 @@ ul {
     clear: both;
 }
 
-/*! CSS Used from: http://pierian-design.com/monster/7-solutions/css/vendor/animate.min.css */
 .rotateIn {
     -webkit-animation-name: rotateIn;
     animation-name: rotateIn;
 }
 
-/*! CSS Used from: http://pierian-design.com/monster/7-solutions/css/vendor/font-awesome.min.css */
+
 .fa {
     display: inline-block;
     font: normal normal normal 14px/1 FontAwesome;
@@ -405,33 +404,14 @@ ul {
     -moz-osx-font-smoothing: grayscale;
 }
 
-.fa-twitter:before {
-    content: "\f099";
-}
 
-.fa-facebook:before {
-    content: "\f09a";
-}
 
-.fa-linkedin:before {
-    content: "\f0e1";
-}
 
-.fa-instagram:before {
-    content: "\f16d";
-}
-
-.fa-dribbble:before {
-    content: "\f17d";
-}
-
-/*! CSS Used from: http://pierian-design.com/monster/7-solutions/css/vendor/magnific-popup.css */
 button::-moz-focus-inner {
     padding: 0;
     border: 0;
 }
 
-/*! CSS Used from: http://pierian-design.com/monster/7-solutions/css/style.css */
 a {
     background-color: transparent;
 }
@@ -453,10 +433,7 @@ button {
     text-transform: none;
 }
 
-button,
-[type="submit"] {
-    -webkit-appearance: button;
-}
+
 
 button::-moz-focus-inner,
 [type="submit"]::-moz-focus-inner {
@@ -635,8 +612,6 @@ input[type=email].form-control {
     -moz-border-radius: 0;
     -ms-border-radius: 0;
     border-radius: 10px;
-    -webkit-box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
 }
 
 .svg {
@@ -654,7 +629,6 @@ input[type=email].form-control {
 .footer-1 {
     padding-top: 120px;
     position: relative;
-    background-color: #181721;
 }
 
 .footer-1 .social-icon-footer {
@@ -690,7 +664,7 @@ input[type=email].form-control {
 }
 
 .footer-1 .social-icon-footer a:hover {
-    color: #fff !important;
+    color: #ffffff !important;
     background-image: -moz-linear-gradient(0deg, #ff6ba7 0%, #ff8765 100%) !important;
     background-image: -webkit-linear-gradient(0deg, #ff6ba7 0%, #ff8765 100%) !important;
     background-image: -ms-linear-gradient(0deg, #ff6ba7 0%, #ff8765 100%) !important;
