@@ -13,6 +13,7 @@
                     <img src="{{ asset ('pictures/articles/' ~ produit.image) }}" alt="Le logo du produit">
                     <p class="card-text">{{ produit.description }}</p>
                     <p class="card-text">{{ produit.prix }} €</p>
+                    <a href="{{ path('product_detail', {'id': produit.id}) }}">Détails du produit</a>
                 </div>
             </div>
         {% endfor %}
