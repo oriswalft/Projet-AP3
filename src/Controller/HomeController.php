@@ -8,6 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\ProduitRepository;
 use App\Entity\Produit;
 use Symfony\Component\HttpFoundation\Request;
+use App\Form\InscriptionType;
 
 class HomeController extends AbstractController
 {
@@ -26,6 +27,17 @@ class HomeController extends AbstractController
     {
         return $this->render('home/detail.html.twig', [
             'produit' => $produit,
+        ]);
+    }
+    #[Route('/inscription', name: 'inscription')]
+    public function inscription(Request $request): Response
+    {
+        $form = $this->createForm(InscriptionType::class);
+        // Gérez la soumission du formulaire si nécessaire
+        $form->handleRequest($request);
+        // Affichez le formulaire dans votre template
+        return $this->render('home/inscription.html.twig', [
+            'form' => $form->createView(),
         ]);
     }
 }
