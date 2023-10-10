@@ -1,5 +1,6 @@
 {% extends 'base.html.twig' %}
 
+
     {% block title %}All4Sport - boutique en ligne{% endblock %}
 
 
@@ -7,11 +8,14 @@
 <div class="container">
     <div class="row">
         {% for produit in produits %}
-            <div class="card mb-4 col-4">
-                <div class="card-body">
-                    <img src="{{ asset ('pictures/articles/' ~ produit.image) }}" alt="Le logo du produit">
-                    <p class="card-text">{{ produit.description }}</p>
-                    <p class="card-text">{{ produit.prix }} €</p>
+            <div class=" mb-4 col-4">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="{{ asset ('pictures/articles/' ~ produit.image) }}" alt="Le logo du produit">
+                        <hr>
+                        <p class="card-text">{{ produit.description }}</p>
+                        <p class="card-text">{{ produit.prix }} €</p>
+                    </div>
                 </div>
             </div>
         {% endfor %}
