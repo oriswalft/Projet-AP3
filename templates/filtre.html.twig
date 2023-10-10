@@ -19,17 +19,26 @@
 </form>
 
 
-    {% dump(app.request.query.get('categorie')) %}
+    {# {% dump(app.request.query.get('categorie')) %} #}
 
     {% if app.request.query.get('categorie') %}
         <h2>Produits pour le rayon sélectionné</h2>
 
-        {% dump(produitsParRayon) %}
-
-        <ul>
-            {% for produit in produitsParRayon[app.request.query.get('categorie')] %}
-                <li>{{ produit.description }} - Prix : {{ produit.prix }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
+        {# {% dump(produitsParRayon) %} #}
+    <div class="container">
+        <div class="row">
+                {% for produit in produitsParRayon[app.request.query.get('categorie')] %}
+                <div class=" mb-4 col-4">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="{{ asset ('pictures/articles/' ~ produit.image) }}" alt="Le logo du produit">
+                        <p class="card-text">{{ produit.description }}</p>
+                        <p class="card-text">{{ produit.prix }} €</p>
+                    </div>
+                </div>
+                </div>
+                {% endfor %}
+        {% endif %}
+        </div>
+    </div>
 {% endblock %}

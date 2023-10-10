@@ -15,6 +15,7 @@
                         <hr>
                         <p class="card-text">{{ produit.description }}</p>
                         <p class="card-text">{{ produit.prix }} €</p>
+                        <a href="{{ path('product_detail', {'id': produit.id}) }}">Détails du produit</a>
                     </div>
                 </div>
             </div>
