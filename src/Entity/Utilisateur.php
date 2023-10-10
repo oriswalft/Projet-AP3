@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Ramsey\Uuid\Uuid;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -21,8 +22,9 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 180, unique: true)]
     private ?string $uuid = null;
 
+    
     #[ORM\Column]
-    private array $roles = [];
+    private array $roles = ['ROLE_USER'];
 
     /**
      * @var string The hashed password
@@ -63,8 +65,6 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'utilisateur', targetEntity: Enfant::class)]
     private Collection $enfants;
 
-
-
     public function __construct()
     {
         $this->commandes = new ArrayCollection();
@@ -86,6 +86,16 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
         $this->uuid = $uuid;
 
         return $this;
+    }
+
+    #[ORM\PrePersist]
+    public function setUuidOnPrePersist(): void
+    {
+        if (!$this->uuid) {
+            // Generate a UUID if it doesn't exist
+            $uuid = Uuid::uuid4();
+            $this->uuid = $uuid->toString();
+        }
     }
 
     /**

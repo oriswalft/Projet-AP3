@@ -8,16 +8,18 @@
 <div class="container">
     <div class="row">
         {% for produit in produits %}
-            <div class="card mb-4 col-4">
+        <div class="mb-4 col-4">
+            <div class="card ">
                 <div class="card-body">
-                    <img src="{{ asset ('pictures/articles/' ~ produit.image) }}" alt="Le logo du produit">
+                    <img src="{{ asset('pictures/articles/' ~ produit.image) }}" alt="Le logo du produit" style="width: 70%;">
+                    <hr>
                     <p class="card-text">{{ produit.description }}</p>
                     <p class="card-text">{{ produit.prix }} €</p>
                     <a href="{{ path('product_detail', {'id': produit.id}) }}">Détails du produit</a>
                 </div>
             </div>
+        </div>
         {% endfor %}
     </div>
 </div>
 {% endblock %}
-
