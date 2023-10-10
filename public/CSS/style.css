@@ -10,7 +10,6 @@
 }
 
 .card img {
-    width: 70%;
     margin: 0 auto;
     display: block;
 }
@@ -38,6 +37,20 @@
 .navbar a:hover {
     color: #448ee4;
 }
+
+.card a {
+    color: #448ee4;
+    background-color: white;
+    border: 1px solid #448ee4;
+    border-radius: 25px;
+    padding: 5px;
+}
+
+.card a:hover {
+    background-color: #448ee4;
+    color: white;
+}
+
 
 body {
     margin: 0;
