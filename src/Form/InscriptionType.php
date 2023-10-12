@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Utilisateur;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -19,7 +20,7 @@ class InscriptionType extends AbstractType
             ->add('nom')
             ->add('prenom')
             ->add('telephone')
-            ->add('dateNaissance')
+            ->add('dateNaissance', DateType::class,["widget" => 'single_text'])
             ->add('nombreEnfant')
             ->add('ageEnfants')
             ->add('sportPratiquee')

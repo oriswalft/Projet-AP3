@@ -28,11 +28,18 @@ class InscriptionController extends AbstractController
             $hashedPassword = $passwordEncoder->hashPassword($utilisateur, $utilisateur->getPassword());
             $utilisateur->setPassword($hashedPassword);
 
+            $utilisateurTrouve = $doctrine->getRepository(Utilisateur::class)->findOneBy(['email' => $utilisateur->getEmail()]);
+
+            if ($utilisateurTrouve) {
+                $this->addFlash('error', 'Cet email est déjà utilisé');
+                return $this->redirectToRoute('inscription');
+            }
+
             $doctrine->persist($utilisateur);
             $doctrine->flush();
     
             // Redirigez vers une page de confirmation ou autre
-            return $this->redirectToRoute('confirmation');
+            return $this->redirectToRoute('app_accueil');
         }
     
         return $this->render('inscription/inscription.html.twig', [
