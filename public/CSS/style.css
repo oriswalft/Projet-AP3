@@ -456,15 +456,23 @@ input {
 
 .form-group {
     display: flex;
+    align-items: center;
+
+}
+
+.center-input {
+    display: flex;
+    align-items: center;
+    flex: 1;
 }
 
 .form-control {
     flex: 1;
+    margin-right: 10px;
 }
 
 .btn-primary {
     flex: none;
-
 }
 
 button,
