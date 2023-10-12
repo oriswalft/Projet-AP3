@@ -18,10 +18,6 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
-
-    #[ORM\Column(length: 180, unique: true)]
-    private ?string $uuid = null;
-
     
     #[ORM\Column]
     private array $roles = ['ROLE_USER'];
@@ -87,17 +83,6 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
-
-    #[ORM\PrePersist]
-    public function setUuidOnPrePersist(): void
-    {
-        if (!$this->uuid) {
-            // Generate a UUID if it doesn't exist
-            $uuid = Uuid::uuid4();
-            $this->uuid = $uuid->toString();
-        }
-    }
-
     /**
      * A visual identifier that represents this user.
      *

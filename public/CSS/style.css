@@ -560,7 +560,6 @@ a {
     position: relative;
     text-align: center;
     margin-bottom: 55px;
-    text-transform: capitalize;
 }
 
 .section-heading-1 p {
@@ -624,7 +623,7 @@ a {
 }
 
 .btn-primary span {
-position : relative;
+    position: relative;
 
 }
 
