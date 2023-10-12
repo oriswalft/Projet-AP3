@@ -585,7 +585,6 @@ a {
 }
 
 .btn-primary {
-    margin: 20px 0 0 0;
     position: relative;
     border: none;
     border-radius: 100px;
@@ -625,7 +624,8 @@ a {
 }
 
 .btn-primary span {
-    position: right;
+position : relative;
+
 }
 
 .color-overlay:after {
