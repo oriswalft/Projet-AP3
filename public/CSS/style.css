@@ -598,7 +598,7 @@ a {
 }
 
 .btn-primary span {
-    position: relative;
+    position: right;
 }
 
 .color-overlay:after {
