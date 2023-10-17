@@ -14,43 +14,44 @@
     </head>
   <body>
     <header class="container-fluid">
-        <div class="row header">
-            <div class="logo col-3 d-flex justify-content-center align-items-center">
-                <img src="{{ asset('pictures/logo/logo.png') }}">
-            </div>
-            <div class="searchbar col-6">
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Rechercher">
-                    <button class="btn btn-outline-success" type="submit">Rechercher</button>
-                </form>
-            </div>
-            <div class="login col-3">
-            </div>
+    <div class="row header">
+        <div class="logo col-3 d-flex justify-content-center align-items-center">
+            <a href="{{ path('app_accueil') }}">
+                <img src="{{ asset('pictures/logo/logo.png') }}" alt="Logo de votre site">
+            </a>
         </div>
-    </header>
+        <div class="searchbar col-6">
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Rechercher">
+                <button class="btn btn-outline-success" type="submit">Rechercher</button>
+            </form>
+        </div>
+        <div class="login col-3">
+            <!-- Votre contenu de connexion ici -->
+        </div>
+    </div>
+</header>
+
 
         <div class="navbar col-12">
                     <ul class="navbar-menu">
                         <li class="nav-item">
-                            <a class="nav-football" href="{{ path('app_accueil', {'categorie': 0}) }}">Accueil</a>
+                            <a class="nav-football" href="#">Football</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-football" href="{{ path('app_accueil', {'categorie': 1}) }}">Football</a>
+                            <a class="nav-escalade" href="#">Escalade</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-escalade" href="{{ path('app_accueil', {'categorie': 2}) }}">Escalade</a>
+                            <a class="nav-rugby" href="#">Rugby</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-rugby" href="{{ path('app_accueil', {'categorie': 3}) }}">Rugby</a>
+                            <a class="nav-tennis" href="#">Tennis</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-tennis" href="{{ path('app_accueil', {'categorie': 4}) }}">Tennis</a>
+                            <a class="nav-basketball" href="#">Basketball</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-basketball" href="{{ path('app_accueil', {'categorie': 5}) }}">Basketball</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-ping_pong" href="{{ path('app_accueil', {'categorie': 6}) }}">Tennis de table</a>
+                            <a class="nav-ping_pong" href="#">Tennis de table</a>
                         </li>
                     </ul>
                 </div>
