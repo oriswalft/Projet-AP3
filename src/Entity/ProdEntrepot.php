@@ -28,6 +28,12 @@ class ProdEntrepot
     #[ORM\Column]
     private ?int $QuantiteeProduits = null;
 
+    #[ORM\ManyToOne(inversedBy: 'prodEntrepots')]
+    private ?Produit $ProdEntrepot = null;
+
+    #[ORM\ManyToOne(inversedBy: 'prodEntrepots')]
+    private ?Entrepot $relation = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -89,6 +95,30 @@ class ProdEntrepot
     public function setQuantiteeProduits(int $QuantiteeProduits): static
     {
         $this->QuantiteeProduits = $QuantiteeProduits;
+
+        return $this;
+    }
+
+    public function getProdEntrepot(): ?Produit
+    {
+        return $this->ProdEntrepot;
+    }
+
+    public function setProdEntrepot(?Produit $ProdEntrepot): static
+    {
+        $this->ProdEntrepot = $ProdEntrepot;
+
+        return $this;
+    }
+
+    public function getRelation(): ?Entrepot
+    {
+        return $this->relation;
+    }
+
+    public function setRelation(?Entrepot $relation): static
+    {
+        $this->relation = $relation;
 
         return $this;
     }
