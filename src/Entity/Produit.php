@@ -39,10 +39,10 @@ class Produit
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $image = null;
 
-
     public function __construct()
     {
         $this->commandes = new ArrayCollection();
+        $this->prodEntrepots = new ArrayCollection();
     }
 
     public function getId(): ?int
