@@ -13,81 +13,87 @@
         {% endblock %}
     </head>
   <body>
-    <header class="container-fluid">
+ <header class="container-fluid">
     <div class="row header">
         <div class="logo col-3 d-flex justify-content-center align-items-center">
             <a href="{{ path('app_accueil') }}">
                 <img src="{{ asset('pictures/logo/logo.png') }}" alt="Logo de votre site">
             </a>
         </div>
-        <div class="searchbar col-6">
+          <div class="searchbar col-6 d-flex justify-content-center align-items-center">
             <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Rechercher">
-                <button class="btn btn-outline-success" type="submit">Rechercher</button>
             </form>
         </div>
-        <div class="login col-3">
-            <!-- Votre contenu de connexion ici -->
+        <div class="login col-3 d-flex flex-column align-items-center">
+            <a href="{{ path('app_accueil') }}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                </svg>
+            </a>
+            <br>
+            <a id="connexion" href="{{ path('app_accueil') }}" >Connectez-vous / Inscrivez-vous</a>
         </div>
-    </div>
 </header>
 
 
+
         <div class="navbar col-12">
-                    <ul class="navbar-menu">
-                        <li class="nav-item">
-                            <a class="nav-football" href="{{ path('app_accueil', {'categorie': 0}) }}">Accueil</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-football"  href="{{ path('app_accueil', {'categorie': 1}) }}">Football</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-escalade"  href="{{ path('app_accueil', {'categorie': 2}) }}">Escalade</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-rugby"  href="{{ path('app_accueil', {'categorie': 3}) }}">Rugby</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-tennis"  href="{{ path('app_accueil', {'categorie': 4}) }}">Tennis</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-basketball"  href="{{ path('app_accueil', {'categorie': 5}) }}">Basketball</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-ping_pong"  href="{{ path('app_accueil', {'categorie': 6}) }}">Tennis de table</a>
-                        </li>
-                    </ul>
-                </div>
+            <ul class="navbar-menu">
+                <li class="nav-item">
+                    <a class="nav-football" href="{{ path('app_accueil', {'categorie': 0}) }}">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-football"  href="{{ path('app_accueil', {'categorie': 1}) }}">Football</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-escalade"  href="{{ path('app_accueil', {'categorie': 2}) }}">Escalade</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-rugby"  href="{{ path('app_accueil', {'categorie': 3}) }}">Rugby</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-tennis"  href="{{ path('app_accueil', {'categorie': 4}) }}">Tennis</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-basketball"  href="{{ path('app_accueil', {'categorie': 5}) }}">Basketball</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-ping_pong"  href="{{ path('app_accueil', {'categorie': 6}) }}">Tennis de table</a>
+                </li>
+            </ul>
+        </div>
         {% block body %}{% endblock %}
             <div class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="subscribe">
-                        <h3>Abonnez-vous à notre newsletter</h3>
-                        <form action="php/newsletter.php" method="post">
-                            <div class="input-group mb-3">
-                                <input type="email" class="form-control" placeholder="Entrez votre adresse e-mail"
-                                    aria-label="Entrez votre adresse e-mail" aria-describedby="button-addon2">
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary" type="button">S'inscrire</button>
-                                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="subscribe">
+                                <h3>Abonnez-vous à notre newsletter</h3>
+                                <form action="php/newsletter.php" method="post">
+                                    <div class="input-group mb-3">
+                                        <input type="email" class="form-control" placeholder="Entrez votre adresse e-mail"
+                                        aria-label="Entrez votre adresse e-mail" aria-describedby="button-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">S'inscrire</button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="contact">
-                        <h3>Contactez-nous</h3>
-                        <p>Adresse : 80 Avenue de des Sports</p>
-                        <p>Téléphone : +1 123-456-7890</p>
-                        <p>Email : all4sport@gmail.com</p>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="contact">
+                                <h3>Contactez-nous</h3>
+                                <p>Adresse : 80 Avenue de des Sports</p>
+                                <p>Téléphone : +1 123-456-7890</p>
+                                <p>Email : all4sport@gmail.com</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-</div>
-</div>
 
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>

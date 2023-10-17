@@ -1,28 +1,5 @@
-.card {
-    text-align: center;
-    border: none;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.15);
-    border-radius: 20px;
-}
-
-.card a {
-    color: #448ee4;
+a {
     text-decoration: none;
-}
-
-.card a:hover {
-    color: #448ee4;
-
-}
-
-
-hr {
-    color: #448ee4;
-}
-
-.card img {
-    margin: 0 auto;
-    display: block;
 }
 
 .header {
@@ -31,6 +8,26 @@ hr {
 
 .logo img {
     height: 95px;
+}
+
+.searchbar input {
+    width: 400px;
+    font-weight: 600;
+}
+
+.login svg {
+    color: white;
+    margin-top: 15px;
+}
+
+#connexion {
+    margin-top: 3px;
+    color: white;
+}
+
+#connexion:hover {
+    text-decoration: underline;
+
 }
 
 .navbar {
@@ -48,13 +45,38 @@ hr {
 
 .navbar a {
     color: black;
-    text-decoration: none;
     font-size: 20px;
     margin-right: 20px;
 }
 
 .navbar a:hover {
     color: #448ee4;
+}
+
+.card {
+    text-align: center;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+}
+
+.card a {
+    color: #448ee4;
+}
+
+.card a:hover {
+    color: #448ee4;
+
+}
+
+
+hr {
+    color: #448ee4;
+}
+
+.card img {
+    margin: 0 auto;
+    display: block;
 }
 
 #bouton {
