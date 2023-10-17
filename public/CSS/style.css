@@ -5,6 +5,15 @@
     border-radius: 20px;
 }
 
+.card a {
+    color: #448ee4;
+}
+
+.card a:hover {
+    color: #448ee4;
+
+}
+
 
 hr {
     color: #448ee4;
@@ -45,15 +54,6 @@ hr {
 
 .navbar a:hover {
     color: #448ee4;
-}
-
-.card a {
-    color: #448ee4;
-}
-
-.card a:hover {
-    color: #448ee4;
-
 }
 
 #bouton {
@@ -570,6 +570,7 @@ a {
     position: relative;
     text-align: center;
     margin-bottom: 55px;
+    text-transform: capitalize;
 }
 
 .section-heading-1 p {
