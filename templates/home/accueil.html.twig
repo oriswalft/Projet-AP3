@@ -7,18 +7,18 @@
     {% block body %}
     <h1>Filtrage produit par rayon</h1>
 
-    <form method="get" action="{{ path('app_accueil') }}">
-        <label for="categories">Sélectionnez un rayon :</label>
-        <select name="categorie" id="categories">
-            <option value="">Tous les rayons</option>
-            {% for categorie in categories %}
-                <option value="{{ categorie.id }}" {% if app.request.query.get('categorie') == categorie.id %}selected{% endif %}>
-                    {{ categorie.nom }}
-                </option>
-            {% endfor %}
-        </select>
-        <input type="submit" value="Filtrer">
-    </form>
+  <form method="get" action="{{ path('app_accueil') }}">
+    <label for="categories">Sélectionnez un rayon :</label>
+    <select name="categorie" id="categories">
+        <option value="">Tous les rayons</option>
+        {% for categorie in categories %}
+            <option value="{{ categorie.id }}" {% if app.request.query.get('categorie') == categorie.id %}selected{% endif %}>
+                {{ categorie.nom }}
+            </option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="Filtrer">
+    </form> 
 
 
     {# {% dump(app.request.query.get('categorie')) %} #}
@@ -30,7 +30,7 @@
     <div class="container">
         <div class="row">
                 {% for produit in produitsParRayon[app.request.query.get('categorie')] %}
-                <div class=" mb-4 col-4">
+                <div class="mb-4 col-4">
                     <div class="card">
                         <div class="card-body">
                             <img src="{{ asset ('pictures/articles/' ~ produit.image) }}" alt="Le logo du produit"style="width: 70%;">
@@ -54,7 +54,9 @@
                             <hr>
                             <p class="card-text">{{ produit.description }}</p>
                             <p class="card-text">{{ produit.prix }} €</p>
-                            <a href="{{ path('product_detail', {'id': produit.id}) }}">Ajouter au panier</a>
+                            <a id="bouton" href="{{ path('product_detail', {'id': produit.id}) }}">Ajouter au panier</a>
+                            <br><br>
+                            <a href="{{ path('product_detail', {'id': produit.id}) }}">Description produit</a>
                         </div>
                     </div>
                 </div>
