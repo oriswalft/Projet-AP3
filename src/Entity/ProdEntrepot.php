@@ -2,11 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\ProdEntrepotRepository;
+use App\Repository\ProduitRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: ProdEntrepotRepository::class)]
-class ProdEntrepot
+#[ORM\Entity(repositoryClass: ProduitRepository::class)]
+class Produit
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -28,10 +28,10 @@ class ProdEntrepot
     #[ORM\Column]
     private ?int $QuantiteeProduits = null;
 
-    #[ORM\ManyToOne(inversedBy: 'prodEntrepots')]
-    private ?Produit $ProdEntrepot = null;
+    #[ORM\ManyToOne(inversedBy: 'produits')]
+    private ?Produit $Produit = null;
 
-    #[ORM\ManyToOne(inversedBy: 'prodEntrepots')]
+    #[ORM\ManyToOne(inversedBy: 'produits')]
     private ?Entrepot $Entrepot = null;
 
     public function getId(): ?int
@@ -99,21 +99,21 @@ class ProdEntrepot
         return $this;
     }
 
-    public function getProdEntrepot(): ?Produit
+    public function getProduit(): ?Produit
     {
-        return $this->ProdEntrepot;
+        return $this->Produit;
     }
 
-    public function setProdEntrepot(?Produit $ProdEntrepot): static
+    public function setProduit(?Produit $produit): static
     {
-        $this->ProdEntrepot = $ProdEntrepot;
+        $this->Produit = $produit;
 
         return $this;
     }
 
     public function getEntrepot(): ?Entrepot
     {
-        return $this->relation;
+        return $this->$entrepot;
     }
 
     public function setEntrepot(?Entrepot $entrepot): static
