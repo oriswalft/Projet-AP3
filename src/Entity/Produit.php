@@ -39,10 +39,6 @@ class Produit
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $image = null;
 
-    #[ORM\OneToMany(mappedBy: 'ProdEntrepot', targetEntity: ProdEntrepot::class)]
-    private Collection $prodEntrepots;
-
-
     public function __construct()
     {
         $this->commandes = new ArrayCollection();
@@ -152,36 +148,6 @@ class Produit
     public function setImage(?string $image): static
     {
         $this->image = $image;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, ProdEntrepot>
-     */
-    public function getProdEntrepots(): Collection
-    {
-        return $this->prodEntrepots;
-    }
-
-    public function addProdEntrepot(ProdEntrepot $prodEntrepot): static
-    {
-        if (!$this->prodEntrepots->contains($prodEntrepot)) {
-            $this->prodEntrepots->add($prodEntrepot);
-            $prodEntrepot->setProdEntrepot($this);
-        }
-
-        return $this;
-    }
-
-    public function removeProdEntrepot(ProdEntrepot $prodEntrepot): static
-    {
-        if ($this->prodEntrepots->removeElement($prodEntrepot)) {
-            // set the owning side to null (unless already changed)
-            if ($prodEntrepot->getProdEntrepot() === $this) {
-                $prodEntrepot->setProdEntrepot(null);
-            }
-        }
 
         return $this;
     }
