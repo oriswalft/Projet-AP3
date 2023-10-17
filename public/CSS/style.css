@@ -5,6 +5,7 @@
     border-radius: 20px;
 }
 
+
 hr {
     color: #448ee4;
 }
@@ -15,13 +16,15 @@ hr {
 }
 
 .header {
-    height: 30px;
     background-color: #448ee4;
-    padding: 30px;
+}
+
+.logo img {
+    height: 95px;
 }
 
 .navbar {
-    padding: 20px;
+    padding: 30px;
     justify-content: center;
 }
 
@@ -42,11 +45,18 @@ hr {
 
 .navbar a:hover {
     color: #448ee4;
-    text-decoration: underline;
-    text-underline-offset: 5px;
 }
 
 .card a {
+    color: #448ee4;
+}
+
+.card a:hover {
+    color: #448ee4;
+
+}
+
+#bouton {
     color: #448ee4;
     background-color: white;
     border: 1px solid #448ee4;
@@ -54,7 +64,7 @@ hr {
     padding: 5px;
 }
 
-.card a:hover {
+#bouton:hover {
     background-color: #448ee4;
     color: white;
 }
@@ -624,7 +634,7 @@ a {
 }
 
 .btn-primary span {
-position : relative;
+    position: relative;
 
 }
 
