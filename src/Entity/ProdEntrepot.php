@@ -32,7 +32,7 @@ class ProdEntrepot
     private ?Produit $ProdEntrepot = null;
 
     #[ORM\ManyToOne(inversedBy: 'prodEntrepots')]
-    private ?Entrepot $relation = null;
+    private ?Entrepot $Entrepot = null;
 
     public function getId(): ?int
     {
@@ -111,14 +111,14 @@ class ProdEntrepot
         return $this;
     }
 
-    public function getRelation(): ?Entrepot
+    public function getEntrepot(): ?Entrepot
     {
         return $this->relation;
     }
 
-    public function setRelation(?Entrepot $relation): static
+    public function setEntrepot(?Entrepot $entrepot): static
     {
-        $this->relation = $relation;
+        $this->relation = $entrepot;
 
         return $this;
     }
