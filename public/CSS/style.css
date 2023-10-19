@@ -106,3 +106,39 @@ hr {
     border-color: #FF8955;
     transform: scale(1.05);
 }
+
+a.phone-link {
+    color: #ffffff;
+    /* Couleur du lien pour le numéro de téléphone */
+    text-decoration: none;
+    /* Supprimer le soulignement par défaut */
+}
+
+a.phone-link:hover {
+    color: red;
+    /* Couleur du lien au survol de la souris */
+}
+
+a.address-link {
+    color: #ffffff;
+    /* Couleur du lien pour l'adresse */
+    text-decoration: none;
+    /* Supprimer le soulignement par défaut */
+}
+
+a.address-link:hover {
+    color: orange;
+    /* Couleur du lien au survol de la souris */
+}
+
+a.email-link {
+    color: #ffffff;
+    /* Couleur du lien pour l'adresse e-mail */
+    text-decoration: none;
+    /* Supprimer le soulignement par défaut */
+}
+
+a.email-link:hover {
+    color: magenta;
+    /* Couleur du lien au survol de la souris */
+}
