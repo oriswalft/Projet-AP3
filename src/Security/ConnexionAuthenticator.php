@@ -15,38 +15,32 @@ use Symfony\Component\Security\Http\Authenticator\Passport\Badge\UserBadge;
 use Symfony\Component\Security\Http\Authenticator\Passport\Credentials\PasswordCredentials;
 use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
 use Symfony\Component\Security\Http\Util\TargetPathTrait;
-use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class ConnexionAuthenticator extends AbstractLoginFormAuthenticator
 {
     use TargetPathTrait;
 
-    public const LOGIN_ROUTE = 'app_login';
+    public const LOGIN_ROUTE = 'login';
 
-    public function __construct(private UrlGeneratorInterface $urlGenerator, private UserPasswordHasherInterface $passwordHasher)
+    public function __construct(private UrlGeneratorInterface $urlGenerator)
     {
-            $this->passwordEncoder = $passwordHasher;
     }
 
     public function authenticate(Request $request): Passport
     {
-        $id = $request->request->get('email', '');
-        $password = $request->request->get('password', '');
+        $email = $request->request->get('email', '');
 
-        $hashedPassword = $this->passwordHasher->hashPassword($password);
-
-        $request->getSession()->set(Security::LAST_USERNAME, $id);
+        $request->getSession()->set(Security::LAST_USERNAME, $email);
 
         return new Passport(
-            new UserBadge($id),
-            new PasswordCredentials($hashedPassword),
+            new UserBadge($email),
+            new PasswordCredentials($request->request->get('password', '')),
             [
                 new CsrfTokenBadge('authenticate', $request->request->get('_csrf_token')),
                 new RememberMeBadge(),
             ]
         );
     }
-
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
         if ($targetPath = $this->getTargetPath($request->getSession(), $firewallName)) {
