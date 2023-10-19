@@ -136,4 +136,14 @@ class Commande
 
         return $this;
     }
+    public function getTotalPrice(): float
+    {
+        $totalPrice = 0;
+
+        foreach ($this->getProdComs() as $prodCom) {
+            $totalPrice += $prodCom->getProduit()->getPrix() * $prodCom->getQuantite();
+        }
+
+        return $totalPrice;
+    }
 }
