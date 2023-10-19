@@ -33,7 +33,11 @@
                 </svg>
             </a>
             <br>
-            <a id="connexion" href="{{ path('app_accueil') }}" >Connectez-vous / Inscrivez-vous</a>
+            <div class="connexion">
+            <a id="connexion" href="{{ path('login') }}" >Connectez-vous </a>
+            <a id="connexion" >|</a>
+            <a id="connexion" href="{{ path('inscription') }}" >Inscrivez-vous</a>
+            </div>
         </div>
 </header>
 
