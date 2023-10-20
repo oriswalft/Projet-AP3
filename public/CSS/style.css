@@ -85,9 +85,9 @@ hr {
 }
 
 .footer .contact {
-    max-width: 400px;
-    margin: 0 auto;
+    max-width: 200px;
     text-align: center;
+    margin: 0 auto;
 }
 
 .btn.btn-primary {
@@ -115,8 +115,8 @@ a.phone-link {
 }
 
 a.phone-link:hover {
-    color: red;
-    /* Couleur du lien au survol de la souris */
+    text-decoration: underline;
+
 }
 
 a.address-link {
@@ -127,8 +127,8 @@ a.address-link {
 }
 
 a.address-link:hover {
-    color: orange;
-    /* Couleur du lien au survol de la souris */
+
+    text-decoration: underline;
 }
 
 a.email-link {
@@ -139,6 +139,6 @@ a.email-link {
 }
 
 a.email-link:hover {
-    color: magenta;
+    text-decoration: underline;
     /* Couleur du lien au survol de la souris */
 }
