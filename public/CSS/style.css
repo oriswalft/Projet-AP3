@@ -31,6 +31,27 @@ hr {
 
 .logo img {
     height: 95px;
+    margin-left: 15%;
+}
+
+.login svg {
+    color: white;
+    margin-top: 10px;
+}
+
+.connexion a {
+    color: white;
+    text-decoration: none;
+}
+
+#connexion {
+    color: white;
+    text-decoration: none;
+}
+
+.connexion a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
 }
 
 .navbar {
