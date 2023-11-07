@@ -18,12 +18,14 @@ class InscriptionController extends AbstractController
     #[Route('/inscription', name: 'inscription')]
     public function inscription (Request $requestUser,UserPasswordHasherInterface $passwordEncoder, EntityManagerInterface $doctrine): Response
     {
+        // print "test";
         $utilisateur = new Utilisateur();
         $form = $this->createForm(InscriptionType::class, $utilisateur);
     
         $form->handleRequest($requestUser);
-    
-        if ($form->isSubmitted() && $form->isValid()) {
+        print "test1";
+        if ($form->isSubmitted() && $form->isValid()){
+            print "test2";
             // Hacher le mot de passe
             $hashedPassword = $passwordEncoder->hashPassword($utilisateur, $utilisateur->getPassword());
             $utilisateur->setPassword($hashedPassword);
