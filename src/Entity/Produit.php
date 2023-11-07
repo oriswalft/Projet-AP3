@@ -28,10 +28,6 @@ class Produit
     #[ORM\Column]
     private ?int $quantite = null;
 
-
-    #[ORM\OneToMany(mappedBy: 'produits', targetEntity: ProdCom::class)]
-    private Collection $prodComs;
-
     #[ORM\ManyToOne(inversedBy: 'produits')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Rayon $categorie = null;
@@ -39,10 +35,17 @@ class Produit
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $image = null;
 
+    #[ORM\ManyToMany(targetEntity: Etagere::class, mappedBy: 'produit')]
+    private Collection $etageres;
+
+
+
 
     public function __construct()
     {
         $this->commandes = new ArrayCollection();
+        $this->Modulee = new ArrayCollection();
+        $this->etageres = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -98,36 +101,6 @@ class Produit
         return $this;
     }
 
-    /**
-     * @return Collection<int, ProdCom>
-     */
-    public function getProdComs(): Collection
-    {
-        return $this->prodComs;
-    }
-
-    public function addProdCom(ProdCom $prodCom): static
-    {
-        if (!$this->prodComs->contains($prodCom)) {
-            $this->prodComs->add($prodCom);
-            $prodCom->setProduits($this);
-        }
-
-        return $this;
-    }
-
-    public function removeProdCom(ProdCom $prodCom): static
-    {
-        if ($this->prodCom->removeElement($prodCom)) {
-            // set the owning side to null (unless already changed)
-            if ($prodCom->getProduits() === $this) {
-                $prodCom->setProduits(null);
-            }
-        }
-
-        return $this;
-    }
-
     public function getCategorie(): ?Rayon
     {
         return $this->categorie;
@@ -152,4 +125,30 @@ class Produit
         return $this;
     }
 
+    /**
+     * @return Collection<int, Etagere>
+     */
+    public function getEtageres(): Collection
+    {
+        return $this->etageres;
+    }
+
+    public function addEtagere(Etagere $etagere): static
+    {
+        if (!$this->etageres->contains($etagere)) {
+            $this->etageres->add($etagere);
+            $etagere->addProduit($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEtagere(Etagere $etagere): static
+    {
+        if ($this->etageres->removeElement($etagere)) {
+            $etagere->removeProduit($this);
+        }
+
+        return $this;
+    }
 }
