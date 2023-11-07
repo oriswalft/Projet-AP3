@@ -23,9 +23,7 @@ class InscriptionController extends AbstractController
         $form = $this->createForm(InscriptionType::class, $utilisateur);
     
         $form->handleRequest($requestUser);
-        print "test1";
         if ($form->isSubmitted() && $form->isValid()){
-            print "test2";
             // Hacher le mot de passe
             $hashedPassword = $passwordEncoder->hashPassword($utilisateur, $utilisateur->getPassword());
             $utilisateur->setPassword($hashedPassword);
