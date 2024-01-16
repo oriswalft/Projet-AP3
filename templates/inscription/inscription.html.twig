@@ -3,21 +3,41 @@
 {% block title %}Inscription{% endblock %}
 
 {% block body %}
-    <h1>Inscription</h1>
-    {{ form_start(form) }}
-        {{ form_row(form.password) }}
-        {{ form_row(form.email) }}
-        {{ form_row(form.nom) }}
-        {{ form_row(form.prenom) }}
-        {{ form_row(form.telephone) }}
-        {{ form_row(form.dateNaissance) }}
-        {{ form_row(form.nombreEnfant) }}
-        {{ form_row(form.ageEnfants) }}
-        {{ form_row(form.sportPratiquee) }}
-        {{ form_row(form.dateDernierAchat) }}
 
-     <button type="submit" class="btn btn-primary">S'inscrire</button>
-
-    {{ form_end(form) }}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="mb-5 col-6">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title">Inscrivez-vous</h1>
+                    <br>    
+                    {{ form_start(form) }}
+                        {{ form_row(form.nom, {'label': 'Nom : '}) }}
+                        <br>
+                        {{ form_row(form.prenom, {'label': 'Prénom : '}) }}
+                        <br>
+                        {{ form_row(form.dateNaissance, {'label': 'Date de naissance : '}) }}
+                        <br>
+                        {{ form_row(form.telephone, {'label': 'Numéro de téléphone : '}) }}
+                        <br>
+                        {{ form_row(form.nombreEnfant, {'label': "Nombre d'enfants : "}) }}
+                        <br>
+                        {{ form_row(form.ageEnfants, {'label': 'Âge de vos enfants : '}) }}
+                        <br>
+                        {{ form_row(form.sportPratiquee, {'label': 'Sport pratiqué : '}) }}
+                        <br>
+                        {{ form_row(form.dateDernierAchat, {'label': 'Date de votre dernier achat : '}) }}
+                        <br>
+                        {{ form_row(form.email, {'label': 'Adresse mail : '}) }}
+                        <br>
+                        {{ form_row(form.password, {'label': 'Mot de passe : '}) }}
+                        <br>
+                        <button type="submit" class="btn btn-primary">S'inscrire</button>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

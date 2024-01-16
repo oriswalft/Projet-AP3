@@ -20,12 +20,11 @@ class InscriptionType extends AbstractType
             ->add('nom')
             ->add('prenom')
             ->add('telephone')
-            ->add('dateNaissance', DateType::class,["widget" => 'single_text'])
+            ->add('dateNaissance', DateType::class, ["widget" => 'single_text'])
             ->add('nombreEnfant')
             ->add('ageEnfants')
             ->add('sportPratiquee')
-            ->add('dateDernierAchat')
-        ;
+            ->add('dateDernierAchat', DateType::class, ["widget" => 'single_text']);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
