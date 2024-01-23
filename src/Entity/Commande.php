@@ -33,6 +33,9 @@ class Commande
     #[ORM\JoinColumn(nullable: false)]
     private ?Etat $etat = null;
 
+    #[ORM\OneToMany(mappedBy: 'Commande', targetEntity: ProdCom::class)]
+    private Collection $prodComs;
+
     public function __construct()
     {
         $this->prodComs = new ArrayCollection();
@@ -100,6 +103,36 @@ class Commande
     public function setEtat(?Etat $etat): static
     {
         $this->etat = $etat;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, ProdCom>
+     */
+    public function getProdComs(): Collection
+    {
+        return $this->prodComs;
+    }
+
+    public function addProdCom(ProdCom $prodCom): static
+    {
+        if (!$this->prodComs->contains($prodCom)) {
+            $this->prodComs->add($prodCom);
+            $prodCom->setCommande($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProdCom(ProdCom $prodCom): static
+    {
+        if ($this->prodComs->removeElement($prodCom)) {
+            // set the owning side to null (unless already changed)
+            if ($prodCom->getCommande() === $this) {
+                $prodCom->setCommande(null);
+            }
+        }
 
         return $this;
     }
