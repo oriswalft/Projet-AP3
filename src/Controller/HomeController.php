@@ -18,7 +18,7 @@ class HomeController extends AbstractController
     #[Route('/', name: 'app_accueil')]
     public function accueil(Request $request, RayonRepository $rayonRepository, ProduitRepository $produitRepository): Response
     {
-        $produits = $produitRepository->findall();
+        $produits = $produitRepository->findAll();
         // Récupérez la liste des rayons
         $rayons = $rayonRepository->findAll();
 

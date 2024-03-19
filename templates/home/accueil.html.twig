@@ -26,7 +26,7 @@
     {% if app.request.query.get('categorie') %}
         <h2>Produits pour le rayon sélectionné</h2>
 
-        {# {% dump(produitsParRayon) %} #}
+
     <div class="container">
         <div class="row">
                 {% for produit in produitsParRayon[app.request.query.get('categorie')] %}
@@ -36,6 +36,9 @@
                             <img src="{{ asset ('pictures/articles/' ~ produit.image) }}" alt="Le logo du produit"style="width: 70%;">
                             <p class="card-text">{{ produit.description }}</p>
                             <p class="card-text">{{ produit.prix }} €</p>
+                            <a id="bouton" href="{{ path('product_detail', {'id': produit.id}) }}">Ajouter au panier</a>
+                            <br><br>
+                            <a href="{{ path('product_detail', {'id': produit.id}) }}">Description produit</a>
                         </div>
                     </div>
                 </div>
@@ -43,6 +46,7 @@
         {% endif %}
         </div>
     </div>
+
     {% if not app.request.query.get('categorie') %}
         <div class="container">
             <div class="row">
@@ -64,4 +68,5 @@
             </div>
         </div>
         {% endif %}
+
     {% endblock %}
